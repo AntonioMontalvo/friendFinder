@@ -1,0 +1,24 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "dating app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonioMontalvo/friendfinder.git"
+  },
+  "author": "Antonio Montalvo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonioMontalvo/friendfinder/issues"
+  },
+  "homepage": "https://github.com/AntonioMontalvo/friendfinder#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
+}
