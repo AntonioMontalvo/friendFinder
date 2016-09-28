@@ -23,14 +23,8 @@ module.exports = function (app){
 
 	app.post('/api/friends', function(req, res){
 		userArray.push(req.body);
-		res.send(userArray);
+		res.send(friendsData);
 		
-
-
-
-
-
-
 
 
 	});
