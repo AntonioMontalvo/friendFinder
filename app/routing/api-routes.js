@@ -28,34 +28,36 @@ module.exports = function (app){
 	app.post('/api/friends', function(req, res){
 		userArray.push(req.body);
 
-
 		function findDifferences (user, match){
 		  for (var i = 0; i < friendsData.length; i++){
-		    for (var j = 0; j < user.length; j++){
-		      totalDifference += Math.abs(user[j].scores[j] - parseInt(match[i].scores[j]));
+		    for (var j = 0; j < 10; j++){
+		      totalDifference += Math.abs(parseInt(user[0].scores[j]) - parseInt(match[i].scores[j]));
 		    }
 		    friendsData[i].difference += totalDifference;
+		    console.log('totaldif '+ totalDifference);
 		//     console.log(friends[i].name + ' has a difference of '
 		//               +friends[i].difference + ' with you!');
 		    totalDifference = 0;
 		  }
   
-		}
+}
 		findDifferences(userArray, friendsData);
 
 
 		 function match(friends) {
 		  var count = 0;
-		      for(var i = 0; i < friends.length; i++){
-		        for (var j = 0; j < friends.length; j++){
+		      for(var i = 0; i < friendsData.length; i++){
+		        for (var j = 0; j < 10; j++){
 		          
-		          if(friends[i].difference < friends[j].difference){
+		          if(friends[i].difference <= friends[j].difference){
 		            count++;
+		            console.log('count' + count);
 		//             console.log('Index ' + i + ' Is bigger than index ' + j);
 		          }
 		        }
-		        if(count == friends.length-1){
-		          // console.log('You found your match in ' + friends[i].name );
+		        if(count == 10){
+		//           console.log('You found your match in ' + friends[i] );
+		          // return friends[i];
 		          superFriend = friends[i];
 		        } else {
 		          
@@ -63,12 +65,17 @@ module.exports = function (app){
 		        }
 		    }
 		 }
+
+		
+
+
+		
 		 
 		match(friendsData);
 
+		console.log(superFriend);
 
-
-	res.send(superFriend);
+		res.send(superFriend);
 		
 
 
