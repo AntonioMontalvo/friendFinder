@@ -8,33 +8,35 @@ var friendsArray = [
 name: "Ahmed",
 photo: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
 scores: [
-"5",
-"1",
-"4",
-"4",
-"5",
-"1",
-"2",
-"5",
-"4",
+"0",
+"0",
+"0",
+"0",
+"0",
+"0",
+"0",
+"0",
+"0",
 "1"
-]
+],
+  difference: 0 
 },
 {
 name: "Jacob Deming",
 photo: "https://pbs.twimg.com/profile_images/691785039043022849/oWsy8LNR.jpg",
 scores: [
-"4",
-"2",
-"5",
 "1",
-"3",
-"2",
-"2",
 "1",
-"3",
-"2"
-]
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1",
+"1"
+],
+difference: 0   
 },
 {
 name: "Jeremiah Scanlon",
@@ -50,7 +52,8 @@ scores: [
 "2",
 "5",
 "5"
-]
+],
+  difference: 0 
 },
 {
 name: "Louis T. Delia",
@@ -66,7 +69,8 @@ scores: [
 "2",
 "2",
 "3"
-]
+],
+  difference: 0 
 },
 {
 name: "Lou Ritter",
@@ -82,7 +86,8 @@ scores: [
 "3",
 "1",
 "4"
-]
+],
+  difference: 0 
 },
 {
 name: "Jordan Biason",
@@ -98,7 +103,144 @@ scores: [
 "2",
 "4",
 "5"
-]
+],
+   difference: 0 
+},
+{
+name: "first",
+photo: "https://static.pexels.com/photos/7720/night-animal-dog-pet.jpg",
+scores: [
+"2",
+"2",
+"4",
+"2",
+"3",
+"3",
+"3",
+"3",
+"2",
+"1"
+],
+  difference: 0 
+},
+{
+name: "first",
+photo: "https://static.pexels.com/photos/7720/night-animal-dog-pet.jpg",
+scores: [
+"2",
+"2",
+"4",
+"2",
+"3",
+"3",
+"3",
+"3",
+"2",
+"1"
+],
+  difference: 0 
+},
+{
+name: "second",
+photo: "https://static.pexels.com/photos/7720/night-animal-dog-pet.jpg",
+scores: [
+"2",
+"2",
+"4",
+"2",
+"3",
+"3",
+"3",
+"3",
+"2",
+"1"
+],
+  difference: 0 
+},
+{
+name: "miiiiiitetst",
+photo: "test.com",
+scores: [
+"2",
+"4",
+"2",
+"4",
+"4",
+"2",
+"1",
+"3",
+"3",
+"2"
+],
+  difference: 0 
+},
+{
+name: "Ed",
+photo: "http://funpage.ro/content/thumbs/c1bbc126c6c2627701efa21d3db61c27.jpg",
+scores: [
+"5",
+"1",
+"3",
+"1",
+"2",
+"3",
+"3",
+"5",
+"1",
+"2"
+],
+  difference: 0 
+},
+{
+name: "Jonathan",
+photo: "asdfas",
+scores: [
+"5",
+"2",
+"3",
+"3",
+"3",
+"2",
+"3",
+"3",
+"2",
+"1"
+],
+  difference: 0 
+},
+{
+name: "HU",
+photo: "NO",
+scores: [
+"3",
+"3",
+"2",
+"3",
+"5",
+"3",
+"3",
+"4",
+"1",
+"2"
+],
+  difference: 0 
+},
+{
+name: "Joe Smith",
+photo: "http://www.joesmith.com",
+scores: [
+"5",
+"5",
+"5",
+"1",
+"3",
+"2",
+"4",
+"1",
+"1",
+"5"
+],
+  difference: 0 
 }
 ];
 

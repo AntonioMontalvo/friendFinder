@@ -4,6 +4,9 @@
 
 var friendsData = require('../data/friends.js');
 var userArray =    require('../data/user.js');
+var totalDifference = 0;
+var superFriend;
+
 
 //ROUTING
 //We use thee exports module
@@ -13,6 +16,7 @@ module.exports = function (app){
 //First we handle the API GET Requests
 
 	app.get('/api/friends', function(req, res){
+		console.log('This is the data we give to api/friends, watch the res.json(friendsData on http://localhost:3000/api/friends. It is also logged to the terminal below');
 		console.log(JSON.stringify(friendsData));
 		res.json(friendsData);
 
@@ -23,7 +27,48 @@ module.exports = function (app){
 
 	app.post('/api/friends', function(req, res){
 		userArray.push(req.body);
-		res.send(friendsData);
+
+
+		function findDifferences (user, match){
+		  for (var i = 0; i < friendsData.length; i++){
+		    for (var j = 0; j < user.length; j++){
+		      totalDifference += Math.abs(user[j].scores[j] - parseInt(match[i].scores[j]));
+		    }
+		    friendsData[i].difference += totalDifference;
+		//     console.log(friends[i].name + ' has a difference of '
+		//               +friends[i].difference + ' with you!');
+		    totalDifference = 0;
+		  }
+  
+		}
+		findDifferences(userArray, friendsData);
+
+
+		 function match(friends) {
+		  var count = 0;
+		      for(var i = 0; i < friends.length; i++){
+		        for (var j = 0; j < friends.length; j++){
+		          
+		          if(friends[i].difference < friends[j].difference){
+		            count++;
+		//             console.log('Index ' + i + ' Is bigger than index ' + j);
+		          }
+		        }
+		        if(count == friends.length-1){
+		          // console.log('You found your match in ' + friends[i].name );
+		          superFriend = friends[i];
+		        } else {
+		          
+		          count = 0;
+		        }
+		    }
+		 }
+		 
+		match(friendsData);
+
+
+
+	res.send(superFriend);
 		
 
 
