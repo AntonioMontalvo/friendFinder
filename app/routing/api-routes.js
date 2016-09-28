@@ -12,7 +12,8 @@ var userArray =    require('../data/user.js');
 module.exports = function (app){
 //First we handle the API GET Requests
 
-	app.get('api/friends', function(req, res){
+	app.get('/api/friends', function(req, res){
+		console.log(JSON.stringify(friendsData));
 		res.json(friendsData);
 
 	});
@@ -20,7 +21,7 @@ module.exports = function (app){
 //Secondly we take care of the POST API Requests
 //Here we handle the form submission to the server. The server gets a JSON object, which is saved to the friendsArray.
 
-	app.post('api/friends', function(req, res){
+	app.post('/api/friends', function(req, res){
 		userArray.push(req.body);
 		res.send(userArray);
 		

@@ -1,7 +1,6 @@
 //DATA
 
 //Here we hold all of the posible matches from users.
-module.exports = friendsArray;//we make the array accessible to other files.
 
 
 var friendsArray = [
@@ -102,3 +101,5 @@ scores: [
 ]
 }
 ];
+
+module.exports = friendsArray;//we make the array accessible to other files.
