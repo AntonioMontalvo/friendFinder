@@ -26,54 +26,55 @@ module.exports = function (app){
 //Here we handle the form submission to the server. The server gets a JSON object, which is saved to the friendsArray.
 
 	app.post('/api/friends', function(req, res){
-		userArray.push(req.body);
+		userArray.push(req.body.scores);
+		
 
-		function findDifferences (user, match){
-		  for (var i = 0; i < friendsData.length; i++){
-		    for (var j = 0; j < 10; j++){
-		      totalDifference += Math.abs(parseInt(user[0].scores[j]) - parseInt(match[i].scores[j]));
-		    }
-		    friendsData[i].difference += totalDifference;
-		    console.log('totaldif '+ totalDifference);
-		//     console.log(friends[i].name + ' has a difference of '
-		//               +friends[i].difference + ' with you!');
-		    totalDifference = 0;
-		  }
+
+function findDifferences (user, match){
+  for (var i = 0; i < friendsData.length; i++){
+    for (var j = 0; j < 10; j++){
+      totalDifference += Math.abs(user[0][j] - parseInt(match[i].scores[j]));
+    }
+    friendsData[i].difference += totalDifference;
+    console.log(totalDifference)
+    console.log(friendsData[i].name + ' has a difference of '
+              +friendsData[i].difference + ' with you!');
+    totalDifference = 0;
+  }
   
 }
-		findDifferences(userArray, friendsData);
+findDifferences(userArray, friendsData);
 
 
-		 function match(friends) {
-		  var count = 0;
-		      for(var i = 0; i < friendsData.length; i++){
-		        for (var j = 0; j < 10; j++){
-		          
-		          if(friends[i].difference <= friends[j].difference){
-		            count++;
-		            console.log('count' + count);
-		//             console.log('Index ' + i + ' Is bigger than index ' + j);
-		          }
-		        }
-		        if(count == 10){
-		//           console.log('You found your match in ' + friends[i] );
-		          // return friends[i];
-		          superFriend = friends[i];
-		        } else {
-		          
-		          count = 0;
-		        }
-		    }
-		 }
+ function getAmigo(friends) {
+  var count = 0;
+      for(var i = 0; i < friendsData.length; i++){
+        for (var j = 0; j < 10; j++){
+          
+          if(friendsData[i].difference <= friendsData[j].difference){
+            count++;
+            console.log('count' + count);
+//             console.log('Index ' + i + ' Is bigger than index ' + j);
+          }
+        }
+        if(count == 10){
+          console.log('You found your match in ' + friendsData[i].name );
+          // return friendsData[i];
+          superFriend = friendsData[i];
+        } else {
+          
+          count = 0;
+        }
+    }
+ }
+ 
+getAmigo(friendsData);
+// console.log(getAmigo(friendsData));
 
-		
 
 
-		
-		 
-		match(friendsData);
 
-		console.log(superFriend);
+		// console.log(superFriend);
 
 		res.send(superFriend);
 		
