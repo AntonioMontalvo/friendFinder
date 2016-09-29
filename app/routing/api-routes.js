@@ -36,9 +36,9 @@ function findDifferences (user, match){
       totalDifference += Math.abs(user[0][j] - parseInt(match[i].scores[j]));
     }
     friendsData[i].difference += totalDifference;
-    console.log(totalDifference)
-    console.log(friendsData[i].name + ' has a difference of '
-              +friendsData[i].difference + ' with you!');
+    // console.log(totalDifference)
+    // console.log(friendsData[i].name + ' has a difference of '
+    //           +friendsData[i].difference + ' with you!');
     totalDifference = 0;
   }
   
@@ -47,36 +47,46 @@ findDifferences(userArray, friendsData);
 
 
  function getAmigo(friends) {
+   
   var count = 0;
       for(var i = 0; i < friendsData.length; i++){
         for (var j = 0; j < 10; j++){
           
-          if(friendsData[i].difference <= friendsData[j].difference){
-            count++;
-            console.log('count' + count);
-//             console.log('Index ' + i + ' Is bigger than index ' + j);
+          if(friendsData[i].difference === 0){
+          	superFriend = friendsData[i];
+            // console.log('You found your match in ' + friendsData[i].name );
+          return;
           }
-        }
-        if(count == 10){
-          console.log('You found your match in ' + friendsData[i].name );
-          // return friendsData[i];
-          superFriend = friendsData[i];
-        } else {
           
-          count = 0;
+          
+          if(friendsData[i].difference < friendsData[j].difference){
+            count++;
+//             
+            // console.log(friendsData[i].name + ' difference is ' + friendsData[i].difference + 
+            //             ' and is smaller than  ' + friendsData[j].name +
+            //             " whose difference value is " + friendsData[j].difference );
+            
+          }
+          if(count === 9){
+          console.log('You found your match in ' + friendsData[i].name );
+          superFriend = friendsData[i];
+          return;
+          }
+          if (count !==9){
+          	superFriend = friendsData[0];
+          }
+          
+          
         }
+        // console.log('I COUNT ' + count + ' TIMES');
+        count = 0;
     }
  }
  
 getAmigo(friendsData);
-// console.log(getAmigo(friendsData));
 
 
-
-
-		// console.log(superFriend);
-
-		res.send(superFriend);
+res.send(superFriend);
 		
 
 
