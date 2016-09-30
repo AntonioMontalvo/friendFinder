@@ -19,7 +19,7 @@ scores: [
 "0",
 "1"
 ],
-  difference: 0 
+  difference: 0
 },
 {
 name: "Jacob Deming",

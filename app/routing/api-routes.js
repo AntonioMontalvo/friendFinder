@@ -31,7 +31,7 @@ module.exports = function (app){
 		function findDifferences (user, match){
 		  for (var i = 0; i < friendsData.length; i++){
 		    for (var j = 0; j < 10; j++){
-		      totalDifference += Math.abs(user[userArray.length-1][j] - parseInt(match[i].scores[j]));
+		      totalDifference += Math.abs(user[user.length-1][j] - parseInt(match[i].scores[j]));
 		    }
 		    friendsData[i].difference += totalDifference;
 		    // console.log(totalDifference)
@@ -54,22 +54,19 @@ module.exports = function (app){
       				}
           
           
-	          		if(friendsData[i].difference < friendsData[j].difference){
+	          		if(friendsData[i].difference <= friendsData[j].difference){
 	            		count++;             
 				        // console.log(friendsData[i].name + ' difference is ' + friendsData[i].difference + 
 				        //             ' and is smaller than  ' + friendsData[j].name +
 				        //             " whose difference value is " + friendsData[j].difference );
 	            
 	          		}
-	          		if(count === 9){
+	          		if(count === 10){
 	          			console.log('You found your match in ' + friendsData[i].name );
 	          			superFriend = friendsData[i];
 	          			return;
 	          		}
-	          		if (count !==9){
-	          			superFriend = friendsData[0];
-	      			}
-          
+	          		
           
     			}
         		// console.log('I COUNT ' + count + ' TIMES');
