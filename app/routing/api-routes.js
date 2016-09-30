@@ -64,7 +64,6 @@ module.exports = function (app){
 	          		if(count === 10){
 	          			console.log('You found your match in ' + friendsData[i].name );
 	          			superFriend = friendsData[i];
-	          			return;
 	          		}
 	          		
           
